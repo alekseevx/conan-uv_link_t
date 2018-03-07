@@ -53,3 +53,7 @@ class UvLinktConan(ConanFile):
         self.copy("*.h", src="src/include", dst="include", keep_path=False)
         self.copy("*.a", src="build/lib", dst="lib", keep_path=False)
         self.copy("*.lib", src="build/lib", dst="lib", keep_path=False)
+
+    def package_info(self):
+        self.cpp_info.libs = tools.collect_libs(self)
+
